@@ -2,7 +2,7 @@ package com.shoki.dev.basic.base;
 
 import android.support.v7.app.AppCompatActivity;
 
-import com.hs.pandora.android_pandora.network.NetworkManager;
+import com.shoki.dev.basic.network.NetworkManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
