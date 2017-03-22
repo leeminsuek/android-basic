@@ -12,6 +12,14 @@ public abstract class BaseRecyclerAdapter<T, VH extends BaseViewHolder<T>> exten
 
     private List<T> items;
 
+    public List<T> getItems() {
+        return items;
+    }
+
+    public void setItems(List<T> items) {
+        this.items = items;
+    }
+
     @Override
     public void onBindViewHolder(VH holder, int position) {
         T item = items.get(position);

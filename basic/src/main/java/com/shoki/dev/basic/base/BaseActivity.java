@@ -5,7 +5,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.hs.pandora.android_pandora.network.NetworkManager;
+import com.shoki.dev.basic.network.NetworkManager;
 
 import butterknife.ButterKnife;
 import retrofit2.Call;

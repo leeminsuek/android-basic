@@ -19,6 +19,7 @@ public abstract class BasePresenterActivity<V extends BaseView, P extends BasePr
         super.onCreate(savedInstanceState);
         presenter = onCreatePresenter();
         if(presenter != null) {
+
             presenter.init();
             presenter.setView((V) this);//p->v
             presenter.setActivity(this);//ac
