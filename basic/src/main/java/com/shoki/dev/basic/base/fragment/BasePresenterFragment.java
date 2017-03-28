@@ -1,4 +1,4 @@
-package com.shoki.dev.basic.base;
+package com.shoki.dev.basic.base.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.shoki.dev.basic.base.mvp.BasePresenter;
+import com.shoki.dev.basic.base.mvp.BaseView;
 
 /**
  * Created by shoki on 2017. 2. 1..

@@ -1,4 +1,4 @@
-package com.shoki.dev.basic.base;
+package com.shoki.dev.basic.base.activity;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

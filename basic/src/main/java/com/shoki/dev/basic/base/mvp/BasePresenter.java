@@ -1,4 +1,4 @@
-package com.shoki.dev.basic.base;
+package com.shoki.dev.basic.base.mvp;
 
 import android.support.v7.app.AppCompatActivity;
 

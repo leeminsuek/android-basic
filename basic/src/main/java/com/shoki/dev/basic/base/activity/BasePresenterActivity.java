@@ -1,8 +1,11 @@
-package com.shoki.dev.basic.base;
+package com.shoki.dev.basic.base.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
+import com.shoki.dev.basic.base.mvp.BasePresenter;
+import com.shoki.dev.basic.base.mvp.BaseView;
 
 /**
  * Created by shoki on 2017. 2. 1..
