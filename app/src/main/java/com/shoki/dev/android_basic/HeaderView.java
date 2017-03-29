@@ -24,5 +24,6 @@ public class HeaderView extends RelativeLayout {
     public void change() {
         View view = findViewById(R.id.item_main_bg);
         view.setBackgroundColor(Color.BLUE);
-        view.getLayoutParams().height = 350;}
+        view.getLayoutParams().height = 350;
+    }
 }

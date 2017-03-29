@@ -10,4 +10,6 @@ public class NetworkManager {
 //        Command command = NetworkUtils.getAPI(activity);
         call.enqueue(callback);
     }
+
+
 }
