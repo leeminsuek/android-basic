@@ -10,6 +10,7 @@ public class Constants {
         public static final int V_TYPE_HEADER = 1;
         public static final int V_TYPE_FOOTER = 2;
         public static final int V_TYPE_ITEM = 3;
+        public static final int V_TYPE_LOAD = 4;
     }
 
     public class Network {

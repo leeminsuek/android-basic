@@ -1,14 +1,11 @@
 package com.shoki.dev.android_basic;
 
-import android.graphics.Color;
-import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.shoki.dev.basic.base.adapter.BaseHeaderRecyclerAdapter;
-import com.shoki.dev.basic.base.adapter.BaseRecyclerAdapter;
 import com.shoki.dev.basic.base.adapter.BaseViewHolder;
 
 import butterknife.BindView;
@@ -17,7 +14,7 @@ import butterknife.BindView;
  * Created by shoki on 2017. 3. 22..
  */
 
-public class MainAdapter extends BaseHeaderRecyclerAdapter<String, HeaderView> {
+public class MainAdapter extends BaseHeaderRecyclerAdapter<Shoki, HeaderView> {
 
     @Override
     protected RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
@@ -29,20 +26,23 @@ public class MainAdapter extends BaseHeaderRecyclerAdapter<String, HeaderView> {
         return new MainHeaderHolder(getHeaderItem());
     }
 
-
-
-    public class MainViewHolder extends BaseViewHolder<String> {
+    public class MainViewHolder extends BaseViewHolder<Shoki> {
 
         @BindView(R.id.item_main_txtv)
         TextView txtv;
 
         protected MainViewHolder(ViewGroup parent) {
             super(R.layout.item_main, parent);
+            itemView.setOnClickListener(v -> {
+                if(onItemClickListener != null) {
+                    onItemClickListener.onItemClick(null, getRealItemPosition(getAdapterPosition()));
+                }
+            });
         }
 
         @Override
-        public void onBindViewHolder(String item, int position) {
-            txtv.setText(item + "////" + String.valueOf(position));
+        public void onBindViewHolder(Shoki item, int position) {
+            txtv.setText(item.getId() + "////" + item.getName());
         }
     }
 

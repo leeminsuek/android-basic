@@ -1,10 +1,12 @@
 package com.shoki.dev.basic.base.adapter;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.shoki.dev.basic.constants.Constants;
+import com.shoki.dev.basic.util.SLog;
 
 import java.util.List;
 

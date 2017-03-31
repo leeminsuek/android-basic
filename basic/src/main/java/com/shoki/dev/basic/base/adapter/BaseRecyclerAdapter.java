@@ -1,6 +1,9 @@
 package com.shoki.dev.basic.base.adapter;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+
+import com.shoki.dev.basic.constants.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +16,7 @@ public abstract class BaseRecyclerAdapter<ITEM, VH extends RecyclerView.ViewHold
 
     private List<ITEM> items = new ArrayList<>();
 
-    private OnItemClickListener onItemClickListener = null;
+    protected OnItemClickListener onItemClickListener = null;
 
     @Override
     public void setOnItemClickListener(OnItemClickListener listener) {

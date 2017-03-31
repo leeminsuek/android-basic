@@ -28,5 +28,4 @@ public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder {
     }
 
     public abstract void onBindViewHolder(T item, int position);
-
 }
