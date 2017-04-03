@@ -3,6 +3,9 @@ package com.shoki.dev.basic.util;
 import android.app.ActivityManager;
 import android.content.Context;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class AppUtils {
@@ -42,6 +45,10 @@ public class AppUtils {
                 runnable,
                 interval
         );
+    }
+
+    public static void createHandler(Runnable runnable) {
+        createHandlerPostDelayed(runnable, 0);
     }
 
 

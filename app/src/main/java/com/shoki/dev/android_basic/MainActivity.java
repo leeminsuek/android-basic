@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import com.shoki.dev.basic.util.SLog;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
