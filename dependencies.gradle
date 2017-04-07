@@ -1,0 +1,16 @@
+ext {
+    // Build SDK version
+    libraryVersionName = '0.0.1'
+
+    // Bintray setting info
+    repositoryName = 'test' // Bintray repository name
+    packageName = 'shoki.dev' // module name ex) compile 'tech.thdev:...'
+
+    description = 'shoki bintray sample'
+
+    websiteUrl = 'https://github.com/leeminsuek/android-basic' // site url
+    gitHubRepoUrl = 'https://github.com/leeminsuek/android-basic.git' // git repo url
+
+    githubRepo = 'leeminsuek/android-basic'
+    githubReleaseNotesFile = 'README.md'
+}

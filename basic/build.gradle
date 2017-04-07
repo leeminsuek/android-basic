@@ -1,5 +1,101 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+
+
+group = rootProject.ext.packageName
+version = rootProject.ext.libraryVersionName
+
+// Local aar info
+//install {
+//    repositories.mavenInstaller {
+//        pom.project {
+//            name project.name
+//            description rootProject.ext.description
+//            url rootProject.ext.websiteUrl
+//            inceptionYear '2017' // release date
+//
+//            // gradle dependency
+//            // ex) compile 'tech.thdev:bintray-sample:0.0.1'
+//            packaging 'aar'
+//            groupId rootProject.ext.packageName // compile 'tech.thdev:
+//            artifactId project.name
+//            version rootProject.ext.libraryVersionName // :0.0.1-alpha
+//
+//            licenses {
+//                license {
+//                    name 'The Apache Software License, Version 2.0'
+//                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    distribution 'repo'
+//                }
+//            }
+//
+//            scm { // Optional setting
+//                connection rootProject.ext.gitHubRepoUrl
+//                developerConnection rootProject.ext.gitHubRepoUrl
+//                url rootProject.ext.websiteUrl
+//            }
+//
+//            developers { // Optional setting
+//                developer {
+//                    id 'minseok'
+//                    name 'LEE MINSEOK'
+//                    email 'a01050335943@gmail.com'
+//                }
+//            }
+//        }
+//    }
+//}
+
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            groupId 'tech.thdev'
+//            version releaseVersion
+//            artifactId 'sample-base'
+//        }
+//    }
+//}
+
+// Bintray setting... and upload
+bintray {
+//    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+//    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+    user = 'minseok'
+    key = '369a48450c340cc1abd48b788b769c5a80c518cb'
+//    publications = ['mavenJava']  // When uploading Maven-based publication files
+    configurations = ['archives'] // When uploading configuration files
+
+    publish = true // [Default: false] Whether version should be auto published after an upload
+
+    pkg {
+        repo = rootProject.ext.repositoryName // Repository name (Created in the repository Bintray site)
+        name = 'shoki-android-base'
+        userOrg = user // An optional organization name when the repo belongs to one of the user's orgs
+        desc = 'Bintray sample library' // Optional
+        licenses = ['Apache-2.0']
+
+        vcsUrl = rootProject.ext.gitHubRepoUrl
+        websiteUrl = rootProject.ext.websiteUrl
+        // issueTrackerUrl = '' // Optional
+
+//        labels = ['aar', 'android', 'example'] // Optional
+        publicDownloadNumbers = true
+
+        githubRepo = rootProject.ext.githubRepo // Optional Github repository
+        githubReleaseNotesFile = rootProject.ext.githubReleaseNotesFile // Optional Github readme file
+
+        version {
+            name = rootProject.ext.libraryVersionName // The name of your library project
+//            desc = rootProject.ext.description // Optional - Version-specific description'
+//            released  = new Date() // Optional - Date of the version release. 2 possible values: date in the format of 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ' OR a java.util.Date instance
+            vcsTag = rootProject.ext.libraryVersionName
+        }
+    }
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.1"
@@ -42,4 +138,31 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+}
+
+// JCenter publish
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+// Optional docs
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+// Optional javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+//    archives javadocJar // Optional
+    archives sourcesJar
+}
+
+task findConventions << {
+    println project.getConvention()
 }
