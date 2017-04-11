@@ -7,58 +7,6 @@ apply plugin: 'com.jfrog.bintray'
 
 group = rootProject.ext.packageName
 version = rootProject.ext.libraryVersionName
-
-// Local aar info
-//install {
-//    repositories.mavenInstaller {
-//        pom.project {
-//            name project.name
-//            description rootProject.ext.description
-//            url rootProject.ext.websiteUrl
-//            inceptionYear '2017' // release date
-//
-//            // gradle dependency
-//            // ex) compile 'tech.thdev:bintray-sample:0.0.1'
-//            packaging 'aar'
-//            groupId rootProject.ext.packageName // compile 'tech.thdev:
-//            artifactId project.name
-//            version rootProject.ext.libraryVersionName // :0.0.1-alpha
-//
-//            licenses {
-//                license {
-//                    name 'The Apache Software License, Version 2.0'
-//                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//                    distribution 'repo'
-//                }
-//            }
-//
-//            scm { // Optional setting
-//                connection rootProject.ext.gitHubRepoUrl
-//                developerConnection rootProject.ext.gitHubRepoUrl
-//                url rootProject.ext.websiteUrl
-//            }
-//
-//            developers { // Optional setting
-//                developer {
-//                    id 'minseok'
-//                    name 'LEE MINSEOK'
-//                    email 'a01050335943@gmail.com'
-//                }
-//            }
-//        }
-//    }
-//}
-
-//publishing {
-//    publications {
-//        mavenJava(MavenPublication) {
-//            groupId 'tech.thdev'
-//            version releaseVersion
-//            artifactId 'sample-base'
-//        }
-//    }
-//}
-
 // Bintray setting... and upload
 bintray {
 //    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
@@ -72,7 +20,7 @@ bintray {
 
     pkg {
         repo = rootProject.ext.repositoryName // Repository name (Created in the repository Bintray site)
-        name = 'shoki-android-base'
+        name = project.name// module name
         userOrg = user // An optional organization name when the repo belongs to one of the user's orgs
         desc = 'Bintray sample library' // Optional
         licenses = ['Apache-2.0']
