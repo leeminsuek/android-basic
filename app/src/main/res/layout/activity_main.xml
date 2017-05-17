@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="diff test btn" />
 
-    <android.support.v7.widget.RecyclerView
+    <com.shoki.dev.basic.base.adapter.multi.LoadMoreRecyclerView
         android:id="@+id/main_recycler"
         android:layout_width="match_parent"
         android:overScrollMode="never"

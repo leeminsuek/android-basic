@@ -6,7 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.shoki.dev.basic.base.adapter.BaseHeaderRecyclerAdapter;
-import com.shoki.dev.basic.base.adapter.BaseViewHolder;
+import com.shoki.dev.basic.base.adapter.multi.BaseViewHolder;
+import com.shoki.dev.basic.base.adapter.multi.Section;
 
 import butterknife.BindView;
 
@@ -41,7 +42,7 @@ public class MainAdapter extends BaseHeaderRecyclerAdapter<Shoki, HeaderView> {
         }
 
         @Override
-        public void onBindViewHolder(Shoki item, int position) {
+        public void onBindViewHolder(Shoki item, int position, Section section) {
             txtv.setText(item.getId() + "////" + item.getName());
         }
     }
@@ -55,9 +56,8 @@ public class MainAdapter extends BaseHeaderRecyclerAdapter<Shoki, HeaderView> {
             super(view);
         }
 
-
         @Override
-        public void onBindViewHolder(HeaderView item, int position) {
+        public void onBindViewHolder(HeaderView item, int position, Section section) {
             item.change();
         }
     }

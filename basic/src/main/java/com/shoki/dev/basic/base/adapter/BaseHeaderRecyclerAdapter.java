@@ -1,14 +1,10 @@
 package com.shoki.dev.basic.base.adapter;
 
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
 
+import com.shoki.dev.basic.base.adapter.multi.BaseViewHolder;
 import com.shoki.dev.basic.constants.Constants;
-import com.shoki.dev.basic.util.SLog;
-
-import java.util.List;
 
 /**
  * Created by shoki on 2017. 3. 22..
@@ -45,10 +41,10 @@ public abstract class BaseHeaderRecyclerAdapter<ITEM, HEADER> extends BaseRecycl
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if(getItemViewType(position) == Constants.Recycler.V_TYPE_HEADER) {
-            ((BaseViewHolder<HEADER>) holder).onBindViewHolder(headerItem, position);
+            ((BaseViewHolder<HEADER>) holder).onBindViewHolder(headerItem, position, null);
         } else {
             int realPosition = getRealItemPosition(position);
-            ((BaseViewHolder<ITEM>) holder).onBindViewHolder(getItem(realPosition), realPosition);
+            ((BaseViewHolder<ITEM>) holder).onBindViewHolder(getItem(realPosition), realPosition, null);
         }
     }
 
